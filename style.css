@@ -1,0 +1,183 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.chat_container {
+    background-color: rgb(96, 76, 165);
+    width: 350px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: .5rem;
+    position: relative;
+    display: none;
+}
+/* in this part we'll take care of the input part */
+
+.input_container {
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: 1px solid rgba(255, 255, 255, .2);
+    height: 15vh;
+}
+.input {
+    display: flex;
+}
+.input :is(input, button) {
+    background-color: rgba(255, 255, 255, .1);
+    border: none;
+    color: #fff;
+    outline: none;
+    padding: .3em 1em;
+    font-size: .9rem;
+}
+.input input {
+    border-top-left-radius: .3em;
+    border-bottom-left-radius: .3em;
+}
+.input input::placeholder {
+    color: rgba(255, 255, 255, .4);
+}
+/* we'll change the color of the selection also */
+.input input::selection {
+    background-color: rgb(0, 217, 255);
+}
+.input button {
+    border-top-right-radius: .3em;
+    border-bottom-right-radius: .3em;
+    border-left: 1px solid rgba(255, 255, 255, .2);
+    cursor: pointer;
+    transition: 200ms ease-in-out background-color;
+}
+.input button:hover {
+    background-color: rgba(255, 255, 255, .3);
+}
+.input button:active,
+.social_links a:active {
+    transform: scale(.9);
+}
+
+.social_links {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+.social_links a {
+    text-decoration: none;
+}
+.social_links i {
+    font-size: 1.6rem;
+    color: #fff;
+    text-shadow: 0 0 .2rem #fff;
+    transition: 200ms ease-in-out color;
+}
+.social_links a:hover i {
+    color: rgb(96, 76, 165);
+}
+/* that all for this first part */
+
+/* START OF THE SECOND PART */
+/* IN THIS PART WE'LL STYLE THE MESSAGES ON HOW THEY SHOULD LOOK WHEN YOU SEND THEM*/
+.chat_info {
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.messages {
+    padding: 0 1rem 1rem 1rem;
+    height: calc(80vh - 15vh - 6vh);
+    /* 80vh is the height of the chatbox, 15vh is the input down below and 6vh is the top part where it reads Global Chat */
+    overflow-y: scroll;
+    /* it's fixed
+    but this scroll bar makes it ugly so we'll remove it */
+}
+.messages::-webkit-scrollbar {
+    display: none;
+}
+/* now it look nice */
+/* that's all for this part */
+.single {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 1rem;
+}
+.img {
+    width: 60px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 .5rem rgba(255, 255, 255, 1);
+}
+.img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.user_info {
+    margin-left: .5rem;
+    width: calc(350px - 2rem - 60px);
+}
+.user_info :is(p, h4) {
+    font-size: .9rem;
+    color: #fff;
+    word-wrap: break-word;
+}
+.user_info p {
+    color: rgba(255, 255, 255, .7);
+}
+/* as default the chat will be hidden */
+
+/* now let's style the inputs */
+.user_input_info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+.user_input_info input:first-of-type,
+.user_input_info button {
+    padding: .3rem .5rem;
+    font-size: 1rem;
+    outline: none;
+    background-color: transparent;
+    border: .15rem solid transparent;
+    border-bottom: .15rem solid rgb(96, 76, 165);
+    transition: 200ms ease-in-out border,
+                200ms ease-in-out border-radius;
+}
+.user_input_info input:first-of-type:focus,
+.user_input_info input:first-of-type:valid {
+    border-radius: .5rem;
+    border: .15rem solid rgb(96, 76, 165);
+}
+.user_input_info button {
+    background-color: rgb(96, 76, 165);
+    color: #fff;
+    border-radius: .5rem;
+    cursor: pointer;
+    border: none;
+    transition: 200ms ease-in-out background-color;
+}
+.user_input_info button:hover {
+    background-color: rgb(0, 217, 255);
+}
+.user_input_info button:active {
+    transform: scale(.95);
+}
+/* that's all the CSS we need for this */
